@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>味わい診断 | COFFEE CRAFT</title>
+  <meta name="description" content="6つの質問に答えるだけで、あなたにぴったりのコーヒー豆を診断します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/diagnosis.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="dx-header">
+    <a href="index.html" class="dx-header__logo">COFFEE CRAFT</a>
+    <span class="dx-header__label">味わい診断</span>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <main class="dx-main">
+
+    <!-- ===== クイズ画面 ===== -->
+    <div class="dx-quiz" id="quizScreen">
+      <!-- 進捗 -->
+      <div class="dx-progress">
+        <div class="dx-progress__bar">
+          <div class="dx-progress__fill" id="progressFill"></div>
+        </div>
+        <p class="dx-progress__text"><span id="currentQ">1</span> / 6</p>
+      </div>
+
+      <!-- 質問カード -->
+      <div class="dx-card" id="questionCard">
+        <p class="dx-card__number" id="qNumber">Q1</p>
+        <h2 class="dx-card__question" id="qText"></h2>
+        <div class="dx-card__options" id="qOptions">
+          <!-- JS で生成 -->
+        </div>
+      </div>
+
+      <!-- ナビゲーション -->
+      <div class="dx-nav">
+        <button class="dx-nav__btn dx-nav__btn--back" id="btnBack" disabled>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          戻る
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== 結果画面 ===== -->
+    <div class="dx-result" id="resultScreen" style="display:none;">
+      <div class="dx-result__card">
+        <p class="dx-result__label">Your Coffee Match</p>
+        <h2 class="dx-result__title">あなたにおすすめのコーヒー豆</h2>
+
+        <div class="dx-result__bean" id="resultBean">
+          <p class="dx-result__bean-country" id="resultCountry"></p>
+          <h3 class="dx-result__bean-name" id="resultName"></h3>
+          <p class="dx-result__bean-roast" id="resultRoast"></p>
+        </div>
+
+        <!-- 味わいチャート -->
+        <div class="dx-result__chart" id="resultChart">
+          <!-- JS で生成 -->
+        </div>
+
+        <!-- 2位・3位 -->
+        <div class="dx-result__runners" id="resultRunners">
+          <p class="dx-result__runners-label">こちらもおすすめ</p>
+          <div class="dx-result__runners-list" id="runnersList">
+            <!-- JS で生成 -->
+          </div>
+        </div>
+
+        <div class="dx-result__actions">
+          <a href="index.html#pricing" class="dx-btn dx-btn--primary">プランを選んで始める</a>
+          <button class="dx-btn dx-btn--outline" id="btnRetry">もう一度診断する</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/coffee-beans.js"></script>
+  <script src="js/diagnosis.js"></script>
+</body>
+</html>

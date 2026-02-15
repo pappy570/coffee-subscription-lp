@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COFFEE CRAFT | 毎朝、最高の一杯を。</title>
+  <meta name="description" content="厳選されたスペシャルティコーヒー豆を、焙煎したてでお届け。あなたの毎朝を特別にするコーヒー豆サブスクリプション。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== ヘッダー ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <span class="header__logo-en">COFFEE CRAFT</span>
+      </a>
+      <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="header__nav" id="nav">
+        <ul class="header__nav-list">
+          <li><a href="#features" class="header__nav-link">特徴</a></li>
+          <li><a href="#diagnosis" class="header__nav-link">味わい診断</a></li>
+          <li><a href="#pricing" class="header__nav-link">料金プラン</a></li>
+          <li><a href="#faq" class="header__nav-link">FAQ</a></li>
+          <li><a href="#cta" class="header__nav-link header__nav-cta">今すぐ始める</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== ヒーロー ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <p class="hero__label">Specialty Coffee Subscription</p>
+      <h1 class="hero__title">毎朝、最高の一杯を。</h1>
+      <p class="hero__subtitle">世界中から厳選したスペシャルティコーヒー豆を、<br>焙煎したての最高の状態であなたのもとへお届けします。</p>
+      <a href="#pricing" class="btn btn--primary btn--large">今すぐ始める</a>
+    </div>
+  </section>
+
+  <!-- ========== 特徴 ========== -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section__label">Features</p>
+      <h2 class="section__title">選ばれる3つの理由</h2>
+      <div class="features__grid">
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+              <path d="M12 38V22C12 15.373 17.373 10 24 10C30.627 10 36 15.373 36 22V38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M8 38H40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M20 6C20 6 22 4 24 4C26 4 28 6 28 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 10C18 10 20 7 24 7C28 7 30 10 30 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">焙煎したて直送</h3>
+          <p class="feature-card__text">注文を受けてから焙煎。最高の鮮度でお届けするから、香り高い一杯をご自宅で楽しめます。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+              <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M24 14V24L30 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 8L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M32 8L34 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">プロが厳選</h3>
+          <p class="feature-card__text">経験豊富なバイヤーが世界中の農園を巡り、品質にこだわった豆だけをセレクトしています。</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+              <path d="M24 4L24 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M24 36L24 44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M4 24L12 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M36 24L44 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M21 24L23 26L27 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title">いつでも変更・解約OK</h3>
+          <p class="feature-card__text">プランの変更やスキップ、解約はいつでもオンラインで完結。縛りなしで安心です。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 味わい診断 ========== -->
+  <section class="diagnosis-intro" id="diagnosis">
+    <div class="container">
+      <p class="section__label">Taste Diagnosis</p>
+      <h2 class="section__title">あなたにぴったりの一杯を見つけよう</h2>
+      <p class="diagnosis-intro__text">6つの質問に答えるだけで、あなたの好みにぴったりの<br>コーヒー豆を診断します。</p>
+      <a href="diagnosis.html" class="btn btn--primary btn--large">味わい診断をはじめる</a>
+    </div>
+  </section>
+
+  <!-- ========== 料金プラン ========== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section__label">Pricing</p>
+      <h2 class="section__title">あなたに合ったプランを</h2>
+      <div class="pricing__grid">
+
+        <div class="plan-card">
+          <div class="plan-card__header">
+            <h3 class="plan-card__name">ライト</h3>
+            <p class="plan-card__desc">まずは気軽にお試し</p>
+          </div>
+          <div class="plan-card__body">
+            <p class="plan-card__price"><span class="plan-card__price-num">1,280</span><span class="plan-card__price-unit">円/月</span></p>
+            <ul class="plan-card__features">
+              <li>月1回お届け</li>
+              <li>150g（約10杯分）</li>
+              <li>送料無料</li>
+              <li>いつでも解約OK</li>
+            </ul>
+            <a href="diagnosis.html" class="btn btn--outline">味わいを選ぶ</a>
+          </div>
+        </div>
+
+        <div class="plan-card plan-card--recommended">
+          <div class="plan-card__badge">おすすめ</div>
+          <div class="plan-card__header">
+            <h3 class="plan-card__name">スタンダード</h3>
+            <p class="plan-card__desc">一番人気のプラン</p>
+          </div>
+          <div class="plan-card__body">
+            <p class="plan-card__price"><span class="plan-card__price-num">2,480</span><span class="plan-card__price-unit">円/月</span></p>
+            <ul class="plan-card__features">
+              <li>月2回お届け</li>
+              <li>200g × 2回（約26杯分）</li>
+              <li>送料無料</li>
+              <li>いつでも解約OK</li>
+              <li>限定ブレンド付き</li>
+            </ul>
+            <a href="diagnosis.html" class="btn btn--primary">味わいを選ぶ</a>
+          </div>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-card__header">
+            <h3 class="plan-card__name">プレミアム</h3>
+            <p class="plan-card__desc">コーヒー好きの方に</p>
+          </div>
+          <div class="plan-card__body">
+            <p class="plan-card__price"><span class="plan-card__price-num">4,280</span><span class="plan-card__price-unit">円/月</span></p>
+            <ul class="plan-card__features">
+              <li>月2回お届け</li>
+              <li>400g × 2回（約52杯分）</li>
+              <li>送料無料</li>
+              <li>いつでも解約OK</li>
+              <li>限定ブレンド付き</li>
+              <li>テイスティングノート同梱</li>
+            </ul>
+            <a href="diagnosis.html" class="btn btn--outline">味わいを選ぶ</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <p class="section__label">FAQ</p>
+      <h2 class="section__title">よくあるご質問</h2>
+      <div class="faq__list">
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>どのような豆が届きますか？</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq__answer">
+            <p>世界各地のスペシャルティコーヒー豆をお届けします。エチオピア、コロンビア、グアテマラなど、季節に応じて旬の豆をプロのバイヤーが厳選しています。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>届く頻度を変更できますか？</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq__answer">
+            <p>はい、マイページからいつでもお届け頻度の変更が可能です。次回配送の5日前までにご変更ください。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>解約に違約金はかかりますか？</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq__answer">
+            <p>いいえ、違約金は一切かかりません。いつでもオンラインで解約手続きが可能です。最低契約期間もありません。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>豆の挽き方は選べますか？</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq__answer">
+            <p>豆のまま、中挽き、細挽きの3種類からお選びいただけます。マイページからいつでも変更可能です。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>配送エリアはどこですか？</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq__answer">
+            <p>日本全国に配送しています。離島を含め送料は全プラン無料です。通常、焙煎後2〜3日でお届けします。</p>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>支払い方法は何がありますか？</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq__answer">
+            <p>クレジットカード（Visa, Mastercard, JCB, AMEX）、デビットカード、Amazon Payに対応しています。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta" id="cta">
+    <div class="container">
+      <p class="cta__label">Start Your Coffee Journey</p>
+      <h2 class="cta__title">あなたの毎朝を、<br>特別な一杯から始めよう。</h2>
+      <p class="cta__text">初回限定30%OFF。いつでも解約OK、リスクなしでお試しいただけます。</p>
+      <a href="diagnosis.html" class="btn btn--primary btn--large">プランを選んで始める</a>
+    </div>
+  </section>
+
+  <!-- ========== フッター ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <p class="footer__logo">COFFEE CRAFT</p>
+          <p class="footer__tagline">毎朝、最高の一杯を。</p>
+        </div>
+        <div class="footer__links">
+          <a href="#">利用規約</a>
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">特定商取引法に基づく表記</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M4 4L10.5 12.5L4 20H6L11.5 14L16 20H20L13.5 11.5L20 4H18L12.5 10L8 4H4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="LINE">
+            <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M12 3C6.5 3 2 6.58 2 11C2 14.26 4.23 17.08 7.5 18.43L7 21L10.13 18.84C10.74 18.94 11.36 19 12 19C17.5 19 22 15.42 22 11C22 6.58 17.5 3 12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="footer__copy">&copy; 2026 COFFEE CRAFT. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
