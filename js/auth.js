@@ -6,7 +6,7 @@
   'use strict';
 
   // ========== 設定 ==========
-  var GAS_URL = 'https://script.google.com/macros/s/AKfycbwwqj_N4xZP9i7HlTASyLvUSa_kDQ3G9G353WMR7W0rOFRASq2LGKcs7ybTYrOAjA/exec';
+  var GAS_URL = 'https://script.google.com/macros/s/AKfycbyt24ulpS_QLwKzR39mgDjHL-63nyZmj7-gSF1M1ITSWPytxJ2qQcbG-kD9iPgbULw/exec';
   var AUTH_KEY = 'coffeecraft_auth';
 
   // ========== ユーティリティ ==========
