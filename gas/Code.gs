@@ -18,9 +18,7 @@ var STRIPE_SECRET_KEY = PropertiesService.getScriptProperties().getProperty('STR
 
 // プラン定義（価格は円）
 var PLANS = {
-  light: { name: 'ライトプラン', price: 1280, description: '月1回 / 150g' },
-  standard: { name: 'スタンダードプラン', price: 2480, description: '月2回 / 200g×2' },
-  premium: { name: 'プレミアムプラン', price: 4280, description: '月2回 / 400g×2' }
+  standard: { name: 'コーヒーセット', price: 4800, description: '150g × 3種 / 毎月届く' }
 };
 
 // ========== メインルーター ==========

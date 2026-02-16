@@ -372,7 +372,7 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  max-width: 960px;
+  max-width: 420px;
   margin: 0 auto;
 }
 
@@ -676,12 +676,6 @@ img {
     gap: 32px;
   }
 
-  .pricing__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    align-items: start;
-  }
-
   .cta__title {
     font-size: 2rem;
   }
@@ -722,9 +716,6 @@ img {
     font-size: 3.75rem;
   }
 
-  .pricing__grid {
-    gap: 28px;
-  }
 }
 
 /* ===================================

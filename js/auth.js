@@ -218,53 +218,49 @@
   // ========== Stripe Checkout ==========
 
   function initCheckout() {
-    var planButtons = document.querySelectorAll('.dx-plan-option');
-    if (!planButtons.length) return;
+    var checkoutBtn = document.querySelector('.dx-checkout-btn');
+    if (!checkoutBtn) return;
 
-    planButtons.forEach(function (btn) {
-      btn.addEventListener('click', async function () {
-        var session = getSession();
-        if (!session || !session.isLoggedIn) {
-          window.location.href = 'login.html?redirect=diagnosis.html';
-          return;
+    checkoutBtn.addEventListener('click', async function () {
+      var session = getSession();
+      if (!session || !session.isLoggedIn) {
+        window.location.href = 'login.html?redirect=diagnosis.html';
+        return;
+      }
+
+      var errorEl = document.getElementById('checkoutError');
+      errorEl.textContent = '';
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = '処理中...';
+
+      var baseUrl = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+
+      try {
+        var response = await fetch(GAS_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            action: 'checkout',
+            planId: 'standard',
+            email: session.email,
+            successUrl: baseUrl + 'success.html',
+            cancelUrl: baseUrl + 'diagnosis.html'
+          })
+        });
+        var result = await response.json();
+
+        if (result.success && result.url) {
+          window.location.href = result.url;
+        } else {
+          errorEl.textContent = result.error || '決済の開始に失敗しました';
+          checkoutBtn.disabled = false;
+          checkoutBtn.textContent = 'このセットで申し込む';
         }
-
-        var planId = btn.getAttribute('data-plan');
-        var errorEl = document.getElementById('checkoutError');
-        errorEl.textContent = '';
-
-        // 選択状態を表示
-        planButtons.forEach(function (b) { b.classList.remove('is-selected'); });
-        btn.classList.add('is-selected');
-        btn.disabled = true;
-
-        var baseUrl = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
-
-        try {
-          var response = await fetch(GAS_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify({
-              action: 'checkout',
-              planId: planId,
-              email: session.email,
-              successUrl: baseUrl + 'success.html',
-              cancelUrl: baseUrl + 'diagnosis.html'
-            })
-          });
-          var result = await response.json();
-
-          if (result.success && result.url) {
-            window.location.href = result.url;
-          } else {
-            errorEl.textContent = result.error || '決済の開始に失敗しました';
-            btn.disabled = false;
-          }
-        } catch (err) {
-          errorEl.textContent = '通信エラーが発生しました。もう一度お試しください。';
-          btn.disabled = false;
-        }
-      });
+      } catch (err) {
+        errorEl.textContent = '通信エラーが発生しました。もう一度お試しください。';
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = 'このセットで申し込む';
+      }
     });
   }
 
