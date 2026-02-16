@@ -726,3 +726,35 @@ img {
     gap: 28px;
   }
 }
+
+/* ===================================
+   Auth Button (Header)
+   =================================== */
+.header__nav-auth {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary) !important;
+  padding: 8px 20px;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.header__nav-auth:hover {
+  background-color: var(--color-primary);
+  color: #fff !important;
+}
+
+.header__nav-auth--loggedin {
+  border: none;
+  padding: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text) !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header__nav-auth--loggedin:hover {
+  background-color: transparent;
+  color: var(--color-primary) !important;
+}

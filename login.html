@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン | COFFEE CRAFT</title>
+  <meta name="description" content="COFFEE CRAFTのアカウントにログイン。あなたにぴったりのコーヒー体験を。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="login-header">
+    <a href="index.html" class="login-header__logo">COFFEE CRAFT</a>
+    <span class="login-header__label">ログイン</span>
+  </header>
+
+  <!-- メイン -->
+  <main class="login-main">
+    <div class="login-container">
+
+      <!-- ===== ログインフォーム ===== -->
+      <form id="loginForm">
+        <p class="login-container__label">Sign In</p>
+        <h2 class="login-container__title">ログイン</h2>
+
+        <div class="login-field">
+          <label for="loginEmail">メールアドレス</label>
+          <input type="email" id="loginEmail" placeholder="example@email.com" required>
+        </div>
+
+        <div class="login-field">
+          <label for="loginPassword">パスワード</label>
+          <input type="password" id="loginPassword" placeholder="8文字以上" minlength="8" required>
+        </div>
+
+        <p class="login-error" id="loginError"></p>
+
+        <button type="submit" class="login-btn login-btn--primary">ログイン</button>
+
+        <p class="login-switch">
+          登録がお済みでない方
+          <a href="#" id="showRegister">新規登録はこちら</a>
+        </p>
+      </form>
+
+      <!-- ===== 登録フォーム ===== -->
+      <form id="registerForm" style="display:none;">
+        <p class="login-container__label">Sign Up</p>
+        <h2 class="login-container__title">新規登録</h2>
+
+        <div class="login-field">
+          <label for="regEmail">メールアドレス</label>
+          <input type="email" id="regEmail" placeholder="example@email.com" required>
+        </div>
+
+        <div class="login-field">
+          <label for="regPassword">パスワード（8文字以上）</label>
+          <input type="password" id="regPassword" placeholder="8文字以上" minlength="8" required>
+        </div>
+
+        <p class="login-error" id="registerError"></p>
+
+        <button type="submit" class="login-btn login-btn--primary">登録する</button>
+
+        <p class="login-switch">
+          アカウントをお持ちの方
+          <a href="#" id="showLogin">ログインはこちら</a>
+        </p>
+      </form>
+
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

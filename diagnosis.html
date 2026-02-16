@@ -16,6 +16,7 @@
   <header class="dx-header">
     <a href="index.html" class="dx-header__logo">COFFEE CRAFT</a>
     <span class="dx-header__label">味わい診断</span>
+    <a href="login.html" class="dx-header__auth" id="authButton">ログイン</a>
   </header>
 
   <!-- メインコンテンツ -->
@@ -74,8 +75,31 @@
           </div>
         </div>
 
+        <!-- プラン選択 -->
+        <div class="dx-result__plans">
+          <p class="dx-result__plans-label">プランを選んで始める</p>
+          <div class="dx-plan-select">
+            <button class="dx-plan-option" data-plan="light">
+              <span class="dx-plan-option__name">ライト</span>
+              <span class="dx-plan-option__price">1,280円/月</span>
+              <span class="dx-plan-option__desc">月1回 / 150g</span>
+            </button>
+            <button class="dx-plan-option dx-plan-option--recommended" data-plan="standard">
+              <span class="dx-plan-option__badge">おすすめ</span>
+              <span class="dx-plan-option__name">スタンダード</span>
+              <span class="dx-plan-option__price">2,480円/月</span>
+              <span class="dx-plan-option__desc">月2回 / 200g×2</span>
+            </button>
+            <button class="dx-plan-option" data-plan="premium">
+              <span class="dx-plan-option__name">プレミアム</span>
+              <span class="dx-plan-option__price">4,280円/月</span>
+              <span class="dx-plan-option__desc">月2回 / 400g×2</span>
+            </button>
+          </div>
+          <p class="dx-checkout-error" id="checkoutError"></p>
+        </div>
+
         <div class="dx-result__actions">
-          <a href="index.html#pricing" class="dx-btn dx-btn--primary">プランを選んで始める</a>
           <button class="dx-btn dx-btn--outline" id="btnRetry">もう一度診断する</button>
         </div>
       </div>
@@ -85,5 +109,6 @@
 
   <script src="js/coffee-beans.js"></script>
   <script src="js/diagnosis.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>
