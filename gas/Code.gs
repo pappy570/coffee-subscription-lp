@@ -105,7 +105,7 @@ function handleCheckout(planId, email, successUrl, cancelUrl) {
     'line_items[0][price_data][currency]': 'jpy',
     'line_items[0][price_data][product_data][name]': plan.name,
     'line_items[0][price_data][product_data][description]': plan.description,
-    'line_items[0][price_data][unit_amount]': plan.price,
+    'line_items[0][price_data][unit_amount]': String(plan.price),
     'line_items[0][price_data][recurring][interval]': 'month',
     'line_items[0][quantity]': '1',
     'customer_email': email,
