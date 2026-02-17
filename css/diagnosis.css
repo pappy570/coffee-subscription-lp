@@ -1,5 +1,5 @@
 /* ===================================
-   COFFEE CRAFT - Taste Diagnosis
+   COFFEE CRAFT - Coffee Diagnosis
    =================================== */
 
 /* ---------- Reset & Base ---------- */
@@ -56,6 +56,17 @@ body {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -93,6 +104,33 @@ a {
   color: var(--color-text-light);
 }
 
+.dx-header__auth {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  padding: 6px 16px;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.dx-header__auth:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.header__nav-auth--loggedin.dx-header__auth {
+  border: none;
+  padding: 0;
+  font-size: 0.75rem;
+  color: var(--color-text);
+}
+
+.header__nav-auth--loggedin.dx-header__auth:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
 /* ===================================
    Main
    =================================== */
@@ -102,6 +140,53 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ===================================
+   Start Screen
+   =================================== */
+.dx-start {
+  width: 100%;
+  max-width: 480px;
+  padding: 32px 20px 40px;
+  text-align: center;
+}
+
+.dx-start__card {
+  background-color: var(--color-bg);
+  border-radius: 16px;
+  padding: 48px 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  animation: fadeInUp 0.5s ease;
+}
+
+.dx-start__label {
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.dx-start__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.dx-start__desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.dx-start__disclaimer {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-bottom: 28px;
 }
 
 /* ===================================
@@ -131,7 +216,7 @@ a {
   background-color: var(--color-primary);
   border-radius: 2px;
   transition: width 0.4s ease;
-  width: 16.67%;
+  width: 0%;
 }
 
 .dx-progress__text {
@@ -146,18 +231,10 @@ a {
   border-radius: 16px;
   padding: 32px 24px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  animation: fadeInUp 0.35s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.dx-card--enter {
+  animation: fadeInUp 0.35s ease;
 }
 
 .dx-card__number {
@@ -169,7 +246,7 @@ a {
 }
 
 .dx-card__question {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.5;
   margin-bottom: 24px;
@@ -237,7 +314,8 @@ a {
 .dx-nav {
   margin-top: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dx-nav__btn {
@@ -265,23 +343,23 @@ a {
   cursor: not-allowed;
 }
 
+.dx-nav__btn--skip {
+  margin-left: auto;
+}
+
 /* ===================================
    Result Screen
    =================================== */
 .dx-result {
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
   padding: 32px 20px 40px;
   margin: 0 auto;
 }
 
-.dx-result__card {
-  background-color: var(--color-bg);
-  border-radius: 16px;
-  padding: 40px 24px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+.dx-result__header {
   text-align: center;
-  animation: fadeInUp 0.5s ease;
+  margin-bottom: 24px;
 }
 
 .dx-result__label {
@@ -296,123 +374,97 @@ a {
 .dx-result__title {
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 28px;
 }
 
-/* Bean Info */
-.dx-result__bean {
-  padding: 24px;
-  background: linear-gradient(135deg, #F9F6F3 0%, #EDE7E0 100%);
-  border-radius: 12px;
-  margin-bottom: 28px;
+/* Result Cards */
+.dx-result__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.dx-result__bean-country {
-  font-size: 0.8125rem;
+.dx-slot-card {
+  background-color: var(--color-bg);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  animation: fadeInUp 0.5s ease both;
+}
+
+.dx-slot-card:nth-child(2) { animation-delay: 0.1s; }
+.dx-slot-card:nth-child(3) { animation-delay: 0.2s; }
+
+.dx-slot-card__label {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   color: var(--color-primary);
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.dx-result__bean-name {
-  font-size: 1.375rem;
-  font-weight: 700;
+  text-transform: uppercase;
   margin-bottom: 8px;
 }
 
-.dx-result__bean-roast {
-  font-size: 0.875rem;
-  color: var(--color-text-light);
+.dx-slot-card__bean-name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
-/* Taste Chart */
-.dx-result__chart {
-  margin-bottom: 28px;
+/* Taste Chart (shared across cards) */
+.dx-slot-card__chart {
+  margin-bottom: 16px;
 }
 
 .dx-chart-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 0;
+  padding: 4px 0;
 }
 
 .dx-chart-row__label {
-  width: 40px;
-  font-size: 0.8125rem;
+  width: 36px;
+  font-size: 0.75rem;
   color: var(--color-text-light);
   text-align: right;
   flex-shrink: 0;
 }
 
-.dx-chart-row__bar-wrap {
+.dx-chart-row__bar {
   flex: 1;
-  height: 8px;
+  height: 6px;
   background-color: var(--color-bg-alt);
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
-.dx-chart-row__bar {
+.dx-chart-row__fill {
   height: 100%;
   background-color: var(--color-primary);
-  border-radius: 4px;
+  border-radius: 3px;
   transition: width 0.6s ease;
 }
 
-.dx-chart-row__value {
-  width: 20px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--color-text);
-  flex-shrink: 0;
-}
-
-/* Runners */
-.dx-result__runners {
-  border-top: 1px solid var(--color-border);
-  padding-top: 20px;
-  margin-bottom: 28px;
-}
-
-.dx-result__runners-label {
-  font-size: 0.8125rem;
-  color: var(--color-text-light);
-  margin-bottom: 12px;
-}
-
-.dx-result__runners-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.dx-runner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  background-color: var(--color-bg-alt);
-  border-radius: 8px;
+/* Copy */
+.dx-slot-card__copy p {
   font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
 }
 
-.dx-runner__rank {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  color: var(--color-primary);
-  margin-right: 8px;
-}
-
-.dx-runner__name {
-  flex: 1;
-  text-align: left;
-  font-weight: 500;
-}
-
-.dx-runner__country {
+/* Disclaimer */
+.dx-result__disclaimer {
+  text-align: center;
   font-size: 0.75rem;
   color: var(--color-text-light);
+  margin-bottom: 24px;
+}
+
+.dx-result__empty {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--color-text-light);
+  padding: 40px 20px;
 }
 
 /* Actions */
@@ -420,6 +472,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  text-align: center;
 }
 
 /* Buttons */
@@ -459,125 +512,6 @@ a {
   color: var(--color-primary);
 }
 
-/* ===================================
-   Auth Link (Header)
-   =================================== */
-.dx-header__auth {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  padding: 6px 16px;
-  border: 1px solid var(--color-primary);
-  border-radius: 6px;
-  transition: background-color var(--transition), color var(--transition);
-}
-
-.dx-header__auth:hover {
-  background-color: var(--color-primary);
-  color: #fff;
-}
-
-.header__nav-auth--loggedin.dx-header__auth {
-  border: none;
-  padding: 0;
-  font-size: 0.75rem;
-  color: var(--color-text);
-}
-
-.header__nav-auth--loggedin.dx-header__auth:hover {
-  background-color: transparent;
-  color: var(--color-primary);
-}
-
-/* ===================================
-   Plan Select (Result Screen)
-   =================================== */
-.dx-result__plans {
-  border-top: 1px solid var(--color-border);
-  padding-top: 24px;
-  margin-bottom: 20px;
-}
-
-.dx-result__plans-label {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-
-.dx-plan-select {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.dx-plan-option {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 16px 14px;
-  border: 2px solid var(--color-border);
-  border-radius: 10px;
-  background: none;
-  font-family: var(--font-body);
-  cursor: pointer;
-  transition: border-color var(--transition), background-color var(--transition), transform 0.15s ease;
-  text-align: center;
-}
-
-.dx-plan-option:hover {
-  border-color: var(--color-primary-light);
-  background-color: #FAF7F4;
-}
-
-.dx-plan-option:active {
-  transform: scale(0.98);
-}
-
-.dx-plan-option.is-selected,
-.dx-plan-option--recommended {
-  border-color: var(--color-primary);
-}
-
-.dx-plan-option.is-selected {
-  background-color: #F5EDE6;
-}
-
-.dx-plan-option__badge {
-  position: absolute;
-  top: -10px;
-  right: 12px;
-  background-color: var(--color-primary);
-  color: #fff;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  padding: 2px 10px;
-  border-radius: 10px;
-}
-
-.dx-plan-option__name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.dx-plan-option__price {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-primary);
-}
-
-.dx-plan-option__desc {
-  font-size: 0.75rem;
-  color: var(--color-text-light);
-}
-
-.dx-plan-option:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
-
 .dx-checkout-error {
   color: #c0392b;
   font-size: 0.875rem;
@@ -590,6 +524,14 @@ a {
    Responsive
    =================================== */
 @media (min-width: 768px) {
+  .dx-start__card {
+    padding: 56px 36px;
+  }
+
+  .dx-start__title {
+    font-size: 1.625rem;
+  }
+
   .dx-quiz {
     padding: 48px 20px 60px;
   }
@@ -599,15 +541,15 @@ a {
   }
 
   .dx-card__question {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
 
-  .dx-result__card {
-    padding: 48px 36px;
+  .dx-slot-card {
+    padding: 32px 28px;
   }
 
-  .dx-result__bean-name {
-    font-size: 1.5rem;
+  .dx-slot-card__bean-name {
+    font-size: 1.125rem;
   }
 
   .dx-result__actions {

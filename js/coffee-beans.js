@@ -1,6 +1,138 @@
 /**
- * コーヒー豆データベース
- * Excelから抽出した全133商品の味わいデータ
- * 将来的にExcel/CSVから動的読み込みに置き換え可能
+ * コーヒー豆データベース（BeanSKU）
+ * 後からDB/CSV化できるように、配列定数として管理
  */
-const COFFEE_BEANS_DB = [{"name":"No.2 17/18","country":"ブラジル","roast":"ハイロースト","aroma":2,"sweetness":2,"acidity":2,"bitterness":4,"body":2},{"name":"ショコラN","country":"ブラジル","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"エスプレッソレディー","country":"ブラジル","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":4,"body":4},{"name":"ニブラ","country":"ブラジル","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":4,"body":4},{"name":"リオ・ダメージ","country":"ブラジル","roast":"ミディアム","aroma":5,"sweetness":2,"acidity":2,"bitterness":3,"body":2},{"name":"カフェインレス　サントス","country":"ブラジル","roast":"シティ","aroma":3,"sweetness":3,"acidity":3,"bitterness":2,"body":3},{"name":"ダテーラ農園スイートイエロー","country":"ブラジル","roast":"ハイ","aroma":3,"sweetness":5,"acidity":3,"bitterness":2,"body":2},{"name":"サンマリノ","country":"ブラジル","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"オリベイラスファミリー","country":"ブラジル","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"ファド・アラーラ","country":"ブラジル","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":2,"bitterness":4,"body":3},{"name":"イパネマ農園プレミア・クリュ・ブラック・ココア","country":"ブラジル","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"イパネマ農園プレミア・クリュ・ブラック・ダークチョコ","country":"ブラジル","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":2,"bitterness":4,"body":4},{"name":"イパネマ農園プレミア・クリュ・ブルー・ピーチ","country":"ブラジル","roast":"ハイ","aroma":4,"sweetness":5,"acidity":4,"bitterness":2,"body":3},{"name":"さくらブルボン","country":"ブラジル","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":3},{"name":"ショコラNピーベリー","country":"ブラジル","roast":"シティ","aroma":4,"sweetness":4,"acidity":2,"bitterness":4,"body":3},{"name":"エクセルソ・UGQ","country":"コロンビア","roast":"シティロースト","aroma":3,"sweetness":3,"acidity":4,"bitterness":3,"body":4},{"name":"スプレモ","country":"コロンビア","roast":"シティロースト","aroma":3,"sweetness":3,"acidity":4,"bitterness":3,"body":4},{"name":"カフェインレス・コロンビア","country":"コロンビア","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"ナリーニョ・スプレモ","country":"コロンビア","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":4},{"name":"ブリサス・セレクション","country":"コロンビア","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":4,"body":4},{"name":"エメラルドマウンテン","country":"コロンビア","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":4},{"name":"ナリーニョ・コンサカ","country":"コロンビア","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"サルサ農園ピンクブルボン","country":"コロンビア","roast":"ハイ","aroma":4,"sweetness":5,"acidity":5,"bitterness":2,"body":3},{"name":"パッションフルーツ","country":"コロンビア","roast":"ハイ","aroma":5,"sweetness":5,"acidity":4,"bitterness":1,"body":2},{"name":"ラス・マルガリータス農園 ゲイシャ","country":"コロンビア","roast":"ハイ～シティ","aroma":5,"sweetness":5,"acidity":4,"bitterness":2,"body":3},{"name":"アモール・シン・パラブラス","country":"コロンビア","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":4,"body":4},{"name":"エル・ディビソ農園ピンクブルボン","country":"コロンビア","roast":"ハイ","aroma":4,"sweetness":5,"acidity":4,"bitterness":2,"body":3},{"name":"グアテマラSHB","country":"グアテマラ","roast":"シティロースト","aroma":3,"sweetness":3,"acidity":4,"bitterness":3,"body":3},{"name":"パストーレス ピーベリー","country":"グアテマラ","roast":"フルシティ","aroma":5,"sweetness":5,"acidity":4,"bitterness":3,"body":4},{"name":"ブルーレイク","country":"グアテマラ","roast":"シティロースト","aroma":4,"sweetness":3,"acidity":4,"bitterness":3,"body":3},{"name":"アゾテア農園","country":"グアテマラ","roast":"フルシティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"カフェインレス・グアテマラ","country":"グアテマラ","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":4,"body":3},{"name":"ケツァールアイス","country":"グアテマラ","roast":"フルシティ～フレンチ","aroma":5,"sweetness":4,"acidity":2,"bitterness":2,"body":2},{"name":"フルーツフィールド","country":"グアテマラ","roast":"シティ","aroma":5,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"フィラデルフィア農園","country":"グアテマラ","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":3},{"name":"COEロス・アロヨス農園","country":"グアテマラ","roast":"ミディアム","aroma":5,"sweetness":5,"acidity":4,"bitterness":2,"body":2},{"name":"ブエナビスタ農園ゲイシャ","country":"グアテマラ","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"アヤルサ","country":"グアテマラ","roast":"ハイ～シティ","aroma":3,"sweetness":3,"acidity":3,"bitterness":3,"body":3},{"name":"セントタラス","country":"コスタリカ","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":2,"body":3},{"name":"COEドン・ホアキン農園","country":"コスタリカ","roast":"ハイ","aroma":4,"sweetness":5,"acidity":3,"bitterness":2,"body":2},{"name":"グラナディージャ農園","country":"コスタリカ","roast":"ハイ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":3},{"name":"モンテ・ロウルデス農園","country":"コスタリカ","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":4},{"name":"エル・セドロ農園ゲイシャ","country":"コスタリカ","roast":"ハイ","aroma":4,"sweetness":5,"acidity":4,"bitterness":2,"body":2},{"name":"ボルカンシート農園ウォッシュド","country":"コスタリカ","roast":"ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":2,"body":2},{"name":"ボルカンシート農園ハニー","country":"コスタリカ","roast":"シティ","aroma":4,"sweetness":3,"acidity":4,"bitterness":3,"body":3},{"name":"ボルカン・アスール・イエローハニー","country":"コスタリカ","roast":"シティ","aroma":5,"sweetness":4,"acidity":4,"bitterness":3,"body":3},{"name":"ボルカン・アスール・オバタ・ウォッシュド","country":"コスタリカ","roast":"ハイ","aroma":3,"sweetness":3,"acidity":4,"bitterness":2,"body":3},{"name":"ボルカン・アスール・ゲイシャ・アナエロビック","country":"コスタリカ","roast":"ミディアム","aroma":5,"sweetness":4,"acidity":4,"bitterness":1,"body":2},{"name":"ボルカン・アスール・ゲイシャ・レッドハニー","country":"コスタリカ","roast":"ミディアム","aroma":4,"sweetness":5,"acidity":2,"bitterness":1,"body":2},{"name":"ボルカン・アスール・ピーベリー","country":"コスタリカ","roast":"ハイ","aroma":4,"sweetness":4,"acidity":4,"bitterness":2,"body":2},{"name":"グジ・クオリティー１","country":"エチオピア","roast":"フルシティ","aroma":4,"sweetness":5,"acidity":4,"bitterness":4,"body":4},{"name":"エチオピアG4","country":"エチオピア","roast":"シティ","aroma":4,"sweetness":3,"acidity":4,"bitterness":3,"body":4},{"name":"トラディショナル・モカ","country":"エチオピア","roast":"シティ","aroma":5,"sweetness":5,"acidity":3,"bitterness":3,"body":3},{"name":"カフェインレス・モカ","country":"エチオピア","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":2,"body":2},{"name":"イルガチェフェG-1ホワイトハニー","country":"エチオピア","roast":"ハイ","aroma":4,"sweetness":5,"acidity":2,"bitterness":2,"body":2},{"name":"イルガチェフェG1ナチュラル・ハルスケ","country":"エチオピア","roast":"シティ","aroma":5,"sweetness":5,"acidity":3,"bitterness":3,"body":3},{"name":"グジ・ナチュラルG4","country":"エチオピア","roast":"ハイ","aroma":4,"sweetness":4,"acidity":4,"bitterness":2,"body":4},{"name":"イルガチェフェ・アリチャG1","country":"エチオピア","roast":"ハイ","aroma":5,"sweetness":5,"acidity":4,"bitterness":2,"body":4},{"name":"イルガチェフェ・コンガG1W","country":"エチオピア","roast":"ハイ","aroma":4,"sweetness":4,"acidity":4,"bitterness":2,"body":3},{"name":"レッドマウンテン","country":"ケニア","roast":"フルシティ","aroma":5,"sweetness":4,"acidity":5,"bitterness":3,"body":5},{"name":"マサイAA TOP","country":"ケニア","roast":"フルシティ","aroma":5,"sweetness":5,"acidity":4,"bitterness":4,"body":4},{"name":"キアニャンギ","country":"ケニア","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":2,"bitterness":4,"body":4},{"name":"キアリアWS","country":"ケニア","roast":"シティ","aroma":5,"sweetness":4,"acidity":3,"bitterness":3,"body":4},{"name":"タンザニアAA（キリマンジャロ）","country":"タンザニア","roast":"シティロースト","aroma":3,"sweetness":3,"acidity":4,"bitterness":3,"body":3},{"name":"ンゴロンゴロAA++","country":"タンザニア","roast":"フルシティ","aroma":5,"sweetness":5,"acidity":5,"bitterness":3,"body":5},{"name":"バラムセレクト エピソード7","country":"タンザニア","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":4},{"name":"ンゴロンゴロAB TOP","country":"タンザニア","roast":"フルシティ","aroma":5,"sweetness":4,"acidity":3,"bitterness":4,"body":4},{"name":"WIB-1","country":"インドネシア","roast":"ハイロースト","aroma":2,"sweetness":1,"acidity":2,"bitterness":4,"body":5},{"name":"マンデリン・シナール","country":"インドネシア","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":4,"body":4},{"name":"マンデリンG1・アイス","country":"インドネシア","roast":"フレンチ","aroma":4,"sweetness":3,"acidity":3,"bitterness":4,"body":5},{"name":"マンデリン・グランレイナ","country":"インドネシア","roast":"フルシティ","aroma":4,"sweetness":5,"acidity":3,"bitterness":4,"body":4},{"name":"ジャバ　ロブスタ　AP-1","country":"インドネシア","roast":"フレンチ","aroma":4,"sweetness":1,"acidity":1,"bitterness":4,"body":4},{"name":"マンデリン　ブルーバタック","country":"インドネシア","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":4,"body":5},{"name":"スラウェシ・ママサ","country":"インドネシア","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":4,"body":4},{"name":"ガヨマウンテン・エクストリームウォッシュ","country":"インドネシア","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":4},{"name":"コピ　ルアック","country":"インドネシア","roast":"フルシティ","aroma":5,"sweetness":4,"acidity":3,"bitterness":3,"body":4},{"name":"メロン","country":"インドネシア","roast":"ハイ","aroma":5,"sweetness":3,"acidity":3,"bitterness":3,"body":3},{"name":"ローズ","country":"インドネシア","roast":"ハイ","aroma":5,"sweetness":3,"acidity":3,"bitterness":3,"body":3},{"name":"モンスーン　マラバールAA","country":"インド","roast":"ハイロースト","aroma":3,"sweetness":3,"acidity":1,"bitterness":3,"body":2},{"name":"クメールゴデ農園","country":"インド","roast":"ハイ","aroma":5,"sweetness":5,"acidity":3,"bitterness":1,"body":2},{"name":"グラン・デル・バル","country":"パナマ","roast":"ハイ","aroma":4,"sweetness":5,"acidity":3,"bitterness":2,"body":3},{"name":"エスメラルダ農園ゲイシャ PC ナチュラル","country":"パナマ","roast":"ハイ","aroma":5,"sweetness":5,"acidity":3,"bitterness":3,"body":3},{"name":"エスメラルダ農園ゲイシャ PC ウォッシュド","country":"パナマ","roast":"ハイ","aroma":5,"sweetness":4,"acidity":3,"bitterness":2,"body":3},{"name":"コリオナ農園パカマラ","country":"エルサルバドル","roast":"ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":2,"body":3},{"name":"サンタローザ農園","country":"エルサルバドル","roast":"ハイ","aroma":5,"sweetness":5,"acidity":4,"bitterness":1,"body":3},{"name":"COEエル・ポルテスエロ農園","country":"エルサルバドル","roast":"ミディアム～ハイ","aroma":4,"sweetness":5,"acidity":4,"bitterness":2,"body":3},{"name":"チチカスタル農園","country":"ホンジュラス","roast":"ハイ","aroma":3,"sweetness":4,"acidity":3,"bitterness":2,"body":3},{"name":"エル・ピノ農園","country":"ホンジュラス","roast":"ハイ","aroma":4,"sweetness":4,"acidity":4,"bitterness":2,"body":2},{"name":"リモンシージョ農園","country":"ニカラグア","roast":"ハイ","aroma":3,"sweetness":3,"acidity":3,"bitterness":2,"body":2},{"name":"COEエル・イゾテ農園","country":"メキシコ","roast":"ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":2,"body":2},{"name":"レッドコンドル","country":"ペルー","roast":"ハイ","aroma":5,"sweetness":4,"acidity":4,"bitterness":1,"body":2},{"name":"チリノス組合 ゲイシャ","country":"ペルー","roast":"ハイ","aroma":5,"sweetness":5,"acidity":4,"bitterness":2,"body":3},{"name":"ベジャビスタ農園","country":"ボリビア","roast":"ハイ","aroma":4,"sweetness":5,"acidity":3,"bitterness":2,"body":2},{"name":"コパカバーナ農園","country":"ボリビア","roast":"ハイ","aroma":4,"sweetness":4,"acidity":2,"bitterness":3,"body":3},{"name":"アセンシオ・ティコナ農園","country":"ボリビア","roast":"ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":2,"body":2},{"name":"グレートマウンテン","country":"エクアドル","roast":"ハイ","aroma":3,"sweetness":3,"acidity":2,"bitterness":3,"body":2},{"name":"ブルーマウンテンNo.1 クライスデール","country":"ジャマイカ","roast":"ミディアム～ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"ブルーマウンテンNo.1 ストーンレイ農園","country":"ジャマイカ","roast":"ミディアム～ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"バラオナAA","country":"ドミニカ","roast":"ハイ","aroma":3,"sweetness":3,"acidity":3,"bitterness":3,"body":2},{"name":"カリシンビWS","country":"ルワンダ","roast":"シティ","aroma":5,"sweetness":5,"acidity":4,"bitterness":3,"body":4},{"name":"カリシンビ・アナエロビック","country":"ルワンダ","roast":"ハイ","aroma":5,"sweetness":4,"acidity":4,"bitterness":2,"body":2},{"name":"カリシンビ・ナチュラル","country":"ルワンダ","roast":"シティ","aroma":4,"sweetness":5,"acidity":3,"bitterness":3,"body":3},{"name":"カジャブレWS","country":"ブルンジ共和国","roast":"シティ","aroma":4,"sweetness":5,"acidity":3,"bitterness":2,"body":3},{"name":"ムミルワWS","country":"ブルンジ共和国","roast":"シティ","aroma":4,"sweetness":5,"acidity":3,"bitterness":3,"body":3},{"name":"ビルンガパーク","country":"コンゴ民主共和国","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"エルゴンマウンテン","country":"ウガンダ","roast":"シティ","aroma":3,"sweetness":5,"acidity":3,"bitterness":2,"body":3},{"name":"アフリカンムーン・ドンキー","country":"ウガンダ","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":2,"body":3},{"name":"モカマタリ・アールマッカ","country":"イエメン","roast":"シティ","aroma":4,"sweetness":4,"acidity":2,"bitterness":3,"body":3},{"name":"トイ・スペシャル・ウォッシュド","country":"ベトナム","roast":"ハイ","aroma":3,"sweetness":3,"acidity":1,"bitterness":3,"body":3},{"name":"トイ・スペシャル・ハニー","country":"ベトナム","roast":"ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":2},{"name":"トイ・スペシャル・ナチュラル","country":"ベトナム","roast":"ハイ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"ダラット","country":"ベトナム","roast":"シティ","aroma":3,"sweetness":3,"acidity":3,"bitterness":3,"body":3},{"name":"クホ・ファインロブスタ・アナエロビック","country":"ベトナム","roast":"シティ","aroma":4,"sweetness":3,"acidity":2,"bitterness":3,"body":3},{"name":"クホ・ファインロブスタ・ハニー","country":"ベトナム","roast":"シティ","aroma":3,"sweetness":2,"acidity":2,"bitterness":4,"body":3},{"name":"サイアム・イエロームーン","country":"タイ","roast":"シティ","aroma":3,"sweetness":4,"acidity":3,"bitterness":3,"body":2},{"name":"COEソフトコーヒー農園","country":"タイ","roast":"ハイ","aroma":5,"sweetness":5,"acidity":4,"bitterness":3,"body":3},{"name":"ロイヤルビーンゲイシャ農園","country":"台湾","roast":"ハイ","aroma":5,"sweetness":5,"acidity":3,"bitterness":2,"body":4},{"name":"トゥヌファヒ村","country":"東ティモール","roast":"シティ","aroma":4,"sweetness":4,"acidity":4,"bitterness":3,"body":3},{"name":"シグリ農園","country":"パプア・ニューギニア","roast":"フルシティ","aroma":4,"sweetness":5,"acidity":3,"bitterness":3,"body":4},{"name":"コルブラン農園","country":"パプア・ニューギニア","roast":"フルシティ","aroma":4,"sweetness":5,"acidity":3,"bitterness":3,"body":4},{"name":"マッドマン","country":"パプア・ニューギニア","roast":"フルシティ","aroma":3,"sweetness":3,"acidity":3,"bitterness":3,"body":4},{"name":"スイートハイランド","country":"パプア・ニューギニア","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":3},{"name":"ハワイコナ・カンシーノ・ファミリー","country":"アメリカ","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":3,"body":4},{"name":"ハワイコナ・カイナリウ","country":"アメリカ","roast":"シティ","aroma":5,"sweetness":4,"acidity":3,"bitterness":3,"body":4},{"name":"昭和のアイス","country":"オリジナルブレンド","roast":"フレンチ","aroma":2,"sweetness":3,"acidity":2,"bitterness":4,"body":4},{"name":"プレミアムショコラ","country":"オリジナルブレンド","roast":"シティ～フルシティ","aroma":5,"sweetness":4,"acidity":4,"bitterness":4,"body":5},{"name":"玄冬ブレンド","country":"オリジナルブレンド","roast":"フルシティ","aroma":4,"sweetness":4,"acidity":2,"bitterness":3,"body":4},{"name":"スイート・モカ","country":"オリジナルブレンド","roast":"ハイ～シティ","aroma":5,"sweetness":5,"acidity":5,"bitterness":2,"body":3},{"name":"マイルドアイス","country":"オリジナルブレンド","roast":"フレンチ","aroma":3,"sweetness":3,"acidity":2,"bitterness":3,"body":2},{"name":"カフェインレスアイス","country":"オリジナルブレンド","roast":"フレンチ","aroma":3,"sweetness":3,"acidity":3,"bitterness":3,"body":3},{"name":"クラシカルブレンド","country":"オリジナルブレンド","roast":"シティ","aroma":3,"sweetness":3,"acidity":2,"bitterness":4,"body":3},{"name":"ハニーモーニン","country":"オリジナルブレンド","roast":"シティ","aroma":4,"sweetness":4,"acidity":3,"bitterness":2,"body":3},{"name":"ラバーズブレンド","country":"オリジナルブレンド","roast":"フルシティ","aroma":5,"sweetness":4,"acidity":3,"bitterness":3,"body":4}];
+var COFFEE_BEANS_DB = [
+  {
+    skuId: "SKU-001",
+    roasterName: "丸山珈琲",
+    beanName: "エチオピア イルガチェフェ G1",
+    aroma: 5, sweetness: 4, acidity: 4, bitterness: 1, body: 2,
+    roastLevel: "light",
+    process: "washed",
+    stockGrams: 500,
+    roastDate: "2026-02-05",
+    tags: ["フルーティ", "華やか"]
+  },
+  {
+    skuId: "SKU-002",
+    roasterName: "堀口珈琲",
+    beanName: "グアテマラ アンティグア",
+    aroma: 3, sweetness: 3, acidity: 3, bitterness: 3, body: 3,
+    roastLevel: "medium",
+    process: "washed",
+    stockGrams: 400,
+    roastDate: "2026-02-08",
+    tags: ["バランス", "定番"]
+  },
+  {
+    skuId: "SKU-003",
+    roasterName: "LIGHT UP COFFEE",
+    beanName: "ケニア ニエリ AA",
+    aroma: 4, sweetness: 2, acidity: 5, bitterness: 2, body: 2,
+    roastLevel: "light",
+    process: "washed",
+    stockGrams: 300,
+    roastDate: "2026-02-01",
+    tags: ["明るい酸味", "シトラス"]
+  },
+  {
+    skuId: "SKU-004",
+    roasterName: "猿田彦珈琲",
+    beanName: "インドネシア マンデリン",
+    aroma: 3, sweetness: 2, acidity: 1, bitterness: 5, body: 5,
+    roastLevel: "dark",
+    process: "natural",
+    stockGrams: 350,
+    roastDate: "2026-02-10",
+    tags: ["重厚", "スパイシー"]
+  },
+  {
+    skuId: "SKU-005",
+    roasterName: "ONIBUS COFFEE",
+    beanName: "コロンビア ウイラ",
+    aroma: 4, sweetness: 5, acidity: 2, bitterness: 1, body: 3,
+    roastLevel: "medium",
+    process: "honey",
+    stockGrams: 450,
+    roastDate: "2026-02-12",
+    tags: ["甘い", "なめらか"]
+  },
+  {
+    skuId: "SKU-006",
+    roasterName: "FUGLEN COFFEE",
+    beanName: "コスタリカ ターラス",
+    aroma: 4, sweetness: 3, acidity: 4, bitterness: 2, body: 2,
+    roastLevel: "light",
+    process: "honey",
+    stockGrams: 200,
+    roastDate: "2026-01-28",
+    tags: ["クリーン", "フローラル"]
+  },
+  {
+    skuId: "SKU-007",
+    roasterName: "VERVE COFFEE",
+    beanName: "ブラジル セラード",
+    aroma: 2, sweetness: 3, acidity: 1, bitterness: 4, body: 4,
+    roastLevel: "dark",
+    process: "natural",
+    stockGrams: 600,
+    roastDate: "2026-02-14",
+    tags: ["ナッツ", "チョコレート"]
+  },
+  {
+    skuId: "SKU-008",
+    roasterName: "GLITCH COFFEE",
+    beanName: "パナマ ゲイシャ",
+    aroma: 5, sweetness: 5, acidity: 3, bitterness: 1, body: 3,
+    roastLevel: "light",
+    process: "washed",
+    stockGrams: 200,
+    roastDate: "2026-02-06",
+    tags: ["エレガント", "ジャスミン"]
+  },
+  {
+    skuId: "SKU-009",
+    roasterName: "UNLIMITED COFFEE",
+    beanName: "ルワンダ キブンゴ",
+    aroma: 4, sweetness: 4, acidity: 3, bitterness: 2, body: 3,
+    roastLevel: "medium",
+    process: "washed",
+    stockGrams: 300,
+    roastDate: "2026-01-25",
+    tags: ["ベリー", "やわらか"]
+  },
+  {
+    skuId: "SKU-010",
+    roasterName: "PASSAGE COFFEE",
+    beanName: "エルサルバドル パカマラ",
+    aroma: 3, sweetness: 4, acidity: 2, bitterness: 3, body: 4,
+    roastLevel: "medium",
+    process: "honey",
+    stockGrams: 350,
+    roastDate: "2026-02-03",
+    tags: ["まろやか", "キャラメル"]
+  },
+  {
+    skuId: "SKU-011",
+    roasterName: "THE ROASTERS",
+    beanName: "ペルー チャンチャマイヨ",
+    aroma: 3, sweetness: 2, acidity: 2, bitterness: 2, body: 2,
+    roastLevel: "medium",
+    process: "washed",
+    stockGrams: 100,
+    roastDate: "2026-01-10",
+    tags: ["マイルド"]
+  },
+  {
+    skuId: "SKU-012",
+    roasterName: "KOFFEE MAMEYA",
+    beanName: "エチオピア シダモ ナチュラル",
+    aroma: 5, sweetness: 4, acidity: 2, bitterness: 1, body: 4,
+    roastLevel: "medium",
+    process: "natural",
+    stockGrams: 250,
+    roastDate: "2026-02-11",
+    tags: ["ワイニー", "ベリー"]
+  }
+];
