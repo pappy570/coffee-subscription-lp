@@ -15,11 +15,11 @@
   --color-primary: #C41E3A;
   --color-primary-dark: #9B1B30;
   --color-primary-light: #D4546A;
-  --color-bg: #0A0A0A;
-  --color-bg-alt: #141414;
-  --color-text: #F0F0F0;
-  --color-text-light: #999999;
-  --color-border: #2A2A2A;
+  --color-bg: #1A120D;
+  --color-bg-alt: #231A14;
+  --color-text: #F0EAE4;
+  --color-text-light: #A89585;
+  --color-border: #3A2E26;
   --color-error: #c0392b;
   --font-body: 'Noto Sans JP', sans-serif;
   --font-heading: 'Playfair Display', serif;
@@ -71,7 +71,7 @@ a {
   left: 0;
   width: 100%;
   height: 56px;
-  background-color: rgba(10, 10, 10, 0.95);
+  background-color: rgba(26, 18, 13, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
   display: flex;
