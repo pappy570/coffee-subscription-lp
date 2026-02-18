@@ -67,6 +67,15 @@ body {
   }
 }
 
+/* ---------- Responsive BR ---------- */
+.br-sp { display: inline; }
+.br-pc { display: none; }
+
+@media (min-width: 768px) {
+  .br-sp { display: none; }
+  .br-pc { display: inline; }
+}
+
 a {
   color: inherit;
   text-decoration: none;
