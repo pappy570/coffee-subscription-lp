@@ -15,11 +15,11 @@
   --color-primary: #C41E3A;
   --color-primary-dark: #9B1B30;
   --color-primary-light: #D4546A;
-  --color-bg: #1A120D;
-  --color-bg-alt: #231A14;
-  --color-text: #F0EAE4;
-  --color-text-light: #A89585;
-  --color-border: #3A2E26;
+  --color-bg: #241A13;
+  --color-bg-alt: #2E231B;
+  --color-text: #F5F0EB;
+  --color-text-light: #B8A595;
+  --color-border: #4A3D33;
   --font-body: 'Noto Sans JP', sans-serif;
   --font-heading: 'Playfair Display', serif;
   --header-height: 72px;
@@ -134,7 +134,7 @@ img {
   width: 100%;
   height: var(--header-height);
   z-index: 1000;
-  background-color: rgba(26, 18, 13, 0.95);
+  background-color: rgba(36, 26, 19, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition), box-shadow var(--transition);
@@ -223,7 +223,7 @@ img {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(26, 18, 13, 0.98);
+  background-color: rgba(36, 26, 19, 0.98);
   align-items: center;
   justify-content: center;
   z-index: 999;
@@ -272,7 +272,7 @@ img {
 .hero__bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1A120D 0%, #2A1E17 50%, #14100C 100%);
+  background: linear-gradient(135deg, #241A13 0%, #342820 50%, #1E1610 100%);
   z-index: 0;
 }
 
@@ -362,7 +362,7 @@ img {
    =================================== */
 .diagnosis-intro {
   padding: 96px 0;
-  background: linear-gradient(135deg, #231A14 0%, #2A1E17 100%);
+  background: linear-gradient(135deg, #2E231B 0%, #342820 100%);
   text-align: center;
 }
 
@@ -551,7 +551,7 @@ img {
    =================================== */
 .cta {
   padding: 96px 0;
-  background: linear-gradient(135deg, #1A120D 0%, #2A1510 50%, #C41E3A 100%);
+  background: linear-gradient(135deg, #241A13 0%, #341E18 50%, #C41E3A 100%);
   color: #fff;
   text-align: center;
 }
@@ -579,9 +579,9 @@ img {
 }
 
 .cta .btn--primary {
-  background-color: #F0EAE4;
-  color: #1A120D;
-  border-color: #F0EAE4;
+  background-color: #F5F0EB;
+  color: #241A13;
+  border-color: #F5F0EB;
 }
 
 .cta .btn--primary:hover {
