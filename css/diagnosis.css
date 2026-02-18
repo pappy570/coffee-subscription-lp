@@ -179,7 +179,7 @@ a {
 }
 
 .dx-start__title {
-  font-size: 1.375rem;
+  font-size: clamp(1.125rem, 5vw, 1.375rem);
   font-weight: 700;
   line-height: 1.6;
   margin-bottom: 16px;
